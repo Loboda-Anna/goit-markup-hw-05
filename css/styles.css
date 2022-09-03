@@ -77,6 +77,7 @@ img {
 .footer .contacts:hover,
 .footer .contacts:focus {
   color: var(--accent-color);
+
 }
 .current-page::after{
   content: "";
@@ -99,13 +100,17 @@ img {
   color: var(--primary-text-color);
 }
 .link {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  transition: color var(--transition-dur-and-func);
+
+
 }
 
 .site-nav {
@@ -296,6 +301,7 @@ img {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  transition: background-color var(--transition-dur-and-func), color var(--transition-dur-and-func);
 }
 .team-card .social-btn {
   color: var(--icons-fill);
@@ -322,6 +328,7 @@ img {
   color: var(--icons-fill);
   border: 1px solid var(--icons-fill);
   border-radius: 4px;
+  transition: border-color var(--transition-dur-and-func), color var(--transition-dur-and-func);
 }
 .clients ul {
   display: flex;
@@ -357,14 +364,16 @@ img {
 }
 .filters {
   display: flex;
+  gap: 8px;
   justify-content: center;
 
   margin-bottom: 50px;
 }
-.filters li + li {
-  margin-left: 8px;
-}
+
 .filter-btn {
+  padding: 6px 22px;
+  transition: background-color var(--transition-dur-and-func), color var(--transition-dur-and-func), box-shadow var(--transition-dur-and-func);
+
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -377,12 +386,12 @@ img {
   border-style: none;
   cursor: pointer;
 
-  padding: 6px 22px;
+  
 }
 .filter-btn:hover,
 .filter-btn:focus,
 .current-filter {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   color: var(--the-lightest);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -425,6 +434,7 @@ img {
 }
 .prj-link-wrapper {
   display: block;
+  transition: box-shadow var(--transition-dur-and-func) ;
 }
 .prj-link-wrapper:hover,
 .prj-link-wrapper:focus {
@@ -479,8 +489,12 @@ img {
   line-height: 1.71;
 
   color: var(--the-lightest);
+  transition: color var(--transition-dur-and-func);
 }
-
+.address:hover,
+.address:focus{
+  color: var(--accent-color);
+}
 .footer .contacts {
   color: rgba(255, 255, 255, 0.6);
 
@@ -519,3 +533,53 @@ address li + li {
 .footer-socials li + li {
   margin-left: 10px;
 }
+/* ----MODAL-STYLES---------- */
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  scale: 1;
+
+  background-color:  rgba(0, 0, 0, 0.2);;
+transition:scale var(--transition-dur-and-func), visibility var(--transition-dur-and-func) ;
+}
+.backdrop.is-hidden{
+visibility: hidden;
+/* opacity: 0; */
+scale: 0;
+pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  
+
+
+  background-color: var(--the-lightest);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.close-modal-btn {
+  position: absolute;
+  top:8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
